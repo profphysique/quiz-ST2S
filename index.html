@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quiz 1ST2S</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f4f7;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 700px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+        text-align: center;
+        color: #1f4e79;
+    }
+
+    #timer {
+        position: sticky;
+        top: 0;
+        background: #1f4e79;
+        color: white;
+        padding: 12px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .question {
+        margin-bottom: 25px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 10px;
+    }
+
+    .question p {
+        font-weight: bold;
+    }
+
+    label {
+        display: block;
+        padding: 10px;
+        margin: 5px 0;
+        background: white;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px;
+        font-size: 17px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        background: #1f4e79;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #163a5c;
+    }
+
+    #resultat {
+        display: none;
+        margin-top: 25px;
+        padding: 20px;
+        background: #e8f5e9;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 20px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Quiz 1ST2S</h1>
+
+    <div id="timer">
+        Temps restant : <span id="temps">10:00</span>
+    </div>
+
+    <label for="prenom">Prénom :</label>
+    <input type="text" id="prenom" placeholder="Entre ton prénom">
+
+    <!-- QUESTION 1 -->
+    <div class="question">
+        <p>1. Quelle est l'unité de la quantité de matière ?</p>
+
+        <label>
+            <input type="radio" name="q1" value="A">
+            A. Le gramme
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="B">
+            B. La mole
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="C">
+            C. Le litre
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="D">
+            D. Le kilogramme
+        </label>
+    </div>
+
+    <!-- QUESTION 2 -->
+    <div class="question">
+        <p>2. Quelle est la masse molaire de l'eau H₂O ?</p>
+
+        <label>
+            <input type="radio" name="q2" value="A">
+            A. 16 g·mol⁻¹
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="B">
+            B. 17 g·mol⁻¹
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="C">
+            C. 18 g·mol⁻¹
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="D">
+            D. 20 g·mol⁻¹
+        </label>
+    </div>
+
+    <!-- QUESTION 3 -->
+    <div class="question">
+        <p>3. Quelle relation permet de calculer une quantité de matière à partir de la masse ?</p>
+
+        <label>
+            <input type="radio" name="q3" value="A">
+            A. n = m × M
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="B">
+            B. n = m / M
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="C">
+            C. n = M / m
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="D">
+            D. n = m + M
+        </label>
+    </div>
+
+    <!-- QUESTION 4 -->
+    <div class="question">
+        <p>4. Quelle est l'unité habituelle d'une concentration molaire ?</p>
+
+        <label>
+            <input type="radio" name="q4" value="A">
+            A. mol·L⁻¹
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="B">
+            B. g·L⁻¹
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="C">
+            C. mol·g⁻¹
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="D">
+            D. L·mol⁻¹
+        </label>
+    </div>
+
+    <!-- QUESTION 5 -->
+    <div class="question">
+        <p>5. Une solution contient 0,20 mol de soluté dans 2,0 L. Quelle est sa concentration ?</p>
+
+        <label>
+            <input type="radio" name="q5" value="A">
+            A. 0,10 mol·L⁻¹
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="B">
+            B. 0,20 mol·L⁻¹
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="C">
+            C. 0,40 mol·L⁻¹
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="D">
+            D. 10 mol·L⁻¹
+        </label>
+    </div>
+
+    <!-- QUESTION 6 -->
+    <div class="question">
+        <p>6. Quelle grandeur représente M dans la relation n = m/M ?</p>
+
+        <label>
+            <input type="radio" name="q6" value="A">
+            A. La masse
+        </label>
+
+        <label>
+            <input type="radio" name="q6" value="B">
+            B. La concentration
+        </label>
+
+        <label>
+            <input type="radio" name="q6" value="C">
+            C. La masse molaire
+        </label>
+
+        <label>
+            <input type="radio" name="q6" value="D">
+            D. Le volume
+        </label>
+    </div>
+
+    <!-- QUESTION 7 -->
+    <div class="question">
+        <p>7. Une masse de 9,0 g d'eau correspond environ à :</p>
+
+        <label>
+            <input type="radio" name="q7" value="A">
+            A. 0,05 mol
+        </label>
+
+        <label>
+            <input type="radio" name="q7" value="B">
+            B. 0,50 mol
+        </label>
+
+        <label>
+            <input type="radio" name="q7" value="C">
+            C. 2,0 mol
+        </label>
+
+        <label>
+            <input type="radio" name="q7" value="D">
+            D. 18 mol
+        </label>
+    </div>
+
+    <!-- QUESTION 8 -->
+    <div class="question">
+        <p>8. Pour calculer une concentration molaire, on utilise :</p>
+
+        <label>
+            <input type="radio" name="q8" value="A">
+            A. C = n / V
+        </label>
+
+        <label>
+            <input type="radio" name="q8" value="B">
+            C = m / n
+        </label>
+
+        <label>
+            <input type="radio" name="q8" value="C">
+            C = V / n
+        </label>
+
+        <label>
+            <input type="radio" name="q8" value="D">
+            C = n × V
+        </label>
+    </div>
+
+    <!-- QUESTION 9 -->
+    <div class="question">
+        <p>9. Si le volume d'une solution double alors que la quantité de matière reste constante, la concentration :</p>
+
+        <label>
+            <input type="radio" name="q9" value="A">
+            A. Double
+        </label>
+
+        <label>
+            <input type="radio" name="q9" value="B">
+            B. Est divisée par deux
+        </label>
+
+        <label>
+            <input type="radio" name="q9" value="C">
+            C. Ne change pas
+        </label>
+
+        <label>
+            <input type="radio" name="q9" value="D">
+            D. Est multipliée par quatre
+        </label>
+    </div>
+
+    <!-- QUESTION 10 -->
+    <div class="question">
+        <p>10. Une solution a une concentration de 0,50 mol·L⁻¹ et un volume de 0,20 L. Quelle quantité de matière contient-elle ?</p>
+
+        <label>
+            <input type="radio" name="q10" value="A">
+            A. 0,10 mol
+        </label>
+
+        <label>
+            <input type="radio" name="q10" value="B">
+            B. 0,20 mol
+        </label>
+
+        <label>
+            <input type="radio" name="q10" value="C">
+            2,5 mol
+        </label>
+
+        <label>
+            <input type="radio" name="q10" value="D">
+            0,025 mol
+        </label>
+    </div>
+
+    <button onclick="terminerQuiz()">Terminer le quiz</button>
+
+    <div id="resultat"></div>
+
+</div>
+
+<script>
+
+const dureeTotale = 10 * 60;
+let tempsRestant = dureeTotale;
+
+const debut = new Date();
+
+const bonnesReponses = {
+    q1: "B",
+    q2: "C",
+    q3: "B",
+    q4: "A",
+    q5: "A",
+    q6: "C",
+    q7: "B",
+    q8: "A",
+    q9: "B",
+    q10: "A"
+};
+
+const intervalle = setInterval(function() {
+
+    tempsRestant--;
+
+    let minutes = Math.floor(tempsRestant / 60);
+    let secondes = tempsRestant % 60;
+
+    secondes = secondes.toString().padStart(2, "0");
+
+    document.getElementById("temps").textContent =
+        minutes + ":" + secondes;
+
+    if (tempsRestant <= 0) {
+        clearInterval(intervalle);
+        terminerQuiz();
+    }
+
+}, 1000);
+
+
+function terminerQuiz() {
+
+    clearInterval(intervalle);
+
+    const prenom = document.getElementById("prenom").value.trim();
+
+    if (prenom === "") {
+        alert("Entre ton prénom avant de terminer le quiz.");
+        return;
+    }
+
+    let score = 0;
+
+    for (let i = 1; i <= 10; i++) {
+
+        const reponse = document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        );
+
+        if (reponse && reponse.value === bonnesReponses["q" + i]) {
+            score++;
+        }
+    }
+
+    const maintenant = new Date();
+
+    const duree =
+        Math.round((maintenant - debut) / 1000);
+
+    const minutes = Math.floor(duree / 60);
+    const secondes = duree % 60;
+
+    const note = score;
+
+    document.getElementById("resultat").style.display = "block";
+
+    document.getElementById("resultat").innerHTML =
+        "<strong>" + prenom + "</strong><br><br>" +
+        "Note : " + note + " / 10<br>" +
+        "Durée : " + minutes + " min " + secondes + " s<br>" +
+        "Heure : " + maintenant.toLocaleTimeString("fr-FR");
+
+    document.querySelector("button").disabled = true;
+
+    document.querySelectorAll("input").forEach(function(input) {
+        input.disabled = true;
+    });
+}
+
+</script>
+
+</body>
+</html>
